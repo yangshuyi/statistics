@@ -1,0 +1,22 @@
+{
+  "name": "statistics",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "init_sql": "node ./init/index.js",
+    "start": "node bin/www",
+    "dev": "NODE_ENV=dev ./node_modules/.bin/nodemon bin/www",
+    "prd": "pm2 start bin/www"
+  },
+  "dependencies": {
+    "debug": "^2.6.3",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-jsonp": "^2.0.2",
+    "koa-json": "^2.0.2",
+    "koa-router": "^7.2.1",
+    "koa-session-redis": "^1.1.0",
+    "koa-static": "^4.0.1"
+  },
+  "devDependencies": {}
+}
