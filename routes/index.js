@@ -1,11 +1,16 @@
 const router = require('koa-router')();
 
-router.prefix('');
-
 router.get('/', async (ctx, next) => {
-  await ctx.render('index', {
-    title: 'Hello Koa 2!'
-  })
+    // ctx.body = 'this is root page';
+    var log = ctx.db.model('T_USER_BEHAVIOR_LOG');
+    log.query({}, function(error, doc){
+        console.log('aaa');
+    });
+    ctx.body = 'this is a users/bar response'
+});
+
+router.get('/test', async (ctx, next) => {
+    ctx.body = 'this is a test response';
 });
 
 module.exports = router;

@@ -9,14 +9,18 @@
     "prd": "pm2 start bin/www"
   },
   "dependencies": {
+    "assert": "^1.4.1",
     "debug": "^2.6.3",
-    "koa": "^2.2.0",
+    "koa": "^2.0.0-alpha.8",
     "koa-bodyparser": "^4.2.0",
-    "koa-jsonp": "^2.0.2",
     "koa-json": "^2.0.2",
+    "koa-jsonp": "^2.0.2",
+    "koa-logger": "^3.0.1",
     "koa-router": "^7.2.1",
     "koa-session-redis": "^1.1.0",
-    "koa-static": "^4.0.1"
+    "koa-static": "^4.0.1",
+    "log4js": "^2.3.3",
+    "mongoose": "^4.11.10"
   },
   "devDependencies": {}
 }
