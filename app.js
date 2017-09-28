@@ -1,6 +1,11 @@
+
+
 const Koa = require('koa');
 
 const app = new Koa();
+
+//引入配置文件
+const config = require('./configs/index');
 
 //对于POST请求的处理，koa-bodyparser中间件可以把koa2上下文的formData数据解析到ctx.request.body中
 const BodyParser = require('koa-bodyparser');
@@ -16,10 +21,9 @@ const Static = require('koa-static');
 //log日志
 const logger = require('koa-logger');
 
-const mongoUtil = require('./middleware/mongo/index');
+const mongo = require('./middleware/mongoose/index');
+// const mongoClient = require('./middleware/mongoose/index');
 
-const index = require('./routes/index');
-const userBehavior = require('./routes/userBehavior');
 
 // error handler
 // onerror(app);
@@ -42,10 +46,11 @@ app.use(Static(__dirname + '/public'));
 // })
 
 
-app.use(mongoUtil({url:'mongodb://localhost:27017/blog'}));
+app.use(mongo({url:config.mongo.url}));
 
 // 加载路由中间件
-app.use(index.routes(), index.allowedMethods());
-// app.use(userBehavior.routes(), userBehavior.allowedMethods());
+const router = require('./routes/index');
+app.use(router.routes(), router.allowedMethods());
 
 module.exports = app;
+
