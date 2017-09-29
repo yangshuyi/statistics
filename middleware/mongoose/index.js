@@ -1,8 +1,8 @@
 'use strict';
 
 const Mongoose = require('mongoose');
-Mongoose.Promise = require('q');
-
+// Mongoose.Promise = require('q');
+Mongoose.Promise = global.Promise;
 const Log4js = require('log4js');
 const logger = Log4js.getLogger();
 

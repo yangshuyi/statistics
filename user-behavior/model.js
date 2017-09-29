@@ -4,14 +4,14 @@ const Schema = mongoose.Schema;
 const userBehaviorSchema = new Schema({
     "_id" : {type:Schema.Types.ObjectId},
     "userId" : {type:Schema.Types.Number},
-    "timestamp" : {type:Schema.Types.Date},
-    "userIp" : String,
-    "category" : String,
-    "type" : String,
-    "subType" : String,
-    "operateSystem" : String,
-    "resolution" : String,
-    "jsonData" : {type:Object}
+    // "timestamp" : {type:Schema.Types.Date},
+    // "userIp" : {type:Schema.Types.String},
+    // "category" : {type:Schema.Types.String},
+    // "type" : {type:Schema.Types.String},
+    // "subType" : {type:Schema.Types.String},
+    // "operateSystem" : {type:Schema.Types.String},
+    // "resolution" : {type:Schema.Types.String},
+    // "jsonData" : {type:Object}
 });
 
 const constants = {
@@ -97,6 +97,6 @@ userBehaviorSchema.pre('save', function(next){
     next();
 });
 
-var userBehaviorModel = mongoose.model('UserBehavior', userBehaviorSchema);
+var userBehaviorModel = mongoose.model('UserBehavior', userBehaviorSchema, 'T_USER_BEHAVIOR_LOG');
 
 module.exports = userBehaviorModel;

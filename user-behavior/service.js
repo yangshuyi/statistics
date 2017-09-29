@@ -77,16 +77,12 @@ const constants = {
     },
 };
 
-exports.getUserChangePasswordEventList = async (ctx, next) => {
+exports.getUserChangePasswordEventList = async function(){
     var query = {"category":constants.USER_BEHAVIOR_CATEGORY.USER_MGT, "type":constants.USER_BEHAVIOR_TYPE.UPDATE_USER};
 
-    var statement = UserBehaviorModel.find({"category":"02", "type":"03"});
-    var res = null;
-    await UserBehaviorModel.find({"category":"02", "type":"03"},function(err, list) {
-        if(!err) {
-            res = list;
-        }
-    });
+    // var statement = UserBehaviorModel.find({"category":"02", "type":"03"});
+    var res = await UserBehaviorModel.findOne({}).exec();
+
     // console.log('res====>' + res)
     return res;
 };
