@@ -8,3 +8,9 @@ exports.getUserChangePasswordEventList = async (ctx, next) => {
     console.log(result);
     ctx.body = result;
 };
+
+exports.save = async (ctx, next) => {
+    var result = await UserBehaviorService.save(ctx);
+    console.log(result);
+    ctx.body = result;
+};
