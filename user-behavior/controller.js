@@ -4,7 +4,7 @@ const UserBehaviorModel = require('./model');
 const UserBehaviorService = require('./service');
 
 exports.getUserChangePasswordEventList = async (ctx, next) => {
-    var result = await UserBehaviorService.getUserChangePasswordEventList();
+    var result = await UserBehaviorService.getUserChangePasswordEventList(ctx);
     console.log(result);
     ctx.body = result;
 };

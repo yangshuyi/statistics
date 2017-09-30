@@ -21,8 +21,11 @@ const Static = require('koa-static');
 //log日志
 const logger = require('koa-logger');
 
-const mongo = require('./middleware/mongoose/index');
-// const mongoClient = require('./middleware/mongoose/index');
+const Mongoose = require('mongoose');
+Mongoose.Promise = global.Promise;
+Mongoose.connect(config.mongo.url, {useMongoClient: true}).then(function(db){
+    console.log(db);
+});
 
 
 // error handler
@@ -45,8 +48,6 @@ app.use(Static(__dirname + '/public'));
 //   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 // })
 
-
-app.use(mongo({url:config.mongo.url}));
 
 // 加载路由中间件
 const router = require('./routes/index');
